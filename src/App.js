@@ -18,6 +18,7 @@ function App() {
         const data = await res.json();
         setConverted(data.rates[toCur]);
       }
+      if (fromCur === toCur) return setConverted(amount);
       convert();
     },
     [amount, fromCur, toCur]
