@@ -1,11 +1,19 @@
+import { useState } from "react";
+
 function App() {
+  const [amount, setAmount] = useState(1);
+
   return (
     <div className="App">
       <header className="App-header">
         <p>Currency Converter</p>
       </header>
       <div className="content">
-        <input type="text" />
+        <input
+          type="text"
+          value={amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
+        />
 
         <select>
           <option value="USD">USD</option>
