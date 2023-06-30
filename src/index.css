@@ -31,5 +31,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 3px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
+}
+
+.converted {
+  text-align: center;
 }

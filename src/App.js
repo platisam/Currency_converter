@@ -7,6 +7,7 @@ function App() {
   const [amount, setAmount] = useState(1);
   const [fromCur, setFromCur] = useState("EUR");
   const [toCur, setToCur] = useState("USD");
+  const [converted, setConverted] = useState("");
 
   useEffect(function () {
     async function convert() {
@@ -14,7 +15,7 @@ function App() {
         `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCur}&to=${toCur}`
       );
       const data = await res.json();
-      console.log(data.rates[toCur]);
+      setConverted(data.rates[toCur]);
     }
     convert();
   }, []);
@@ -44,6 +45,11 @@ function App() {
           <option value="CAD">CAD</option>
           <option value="INR">INR</option>
         </select>
+      </div>
+      <div className="converted">
+        <p>
+          {converted} {toCur}
+        </p>
       </div>
     </div>
   );
