@@ -2,6 +2,8 @@ import { useState } from "react";
 
 function App() {
   const [amount, setAmount] = useState(1);
+  const [fromCur, setFromCur] = useState("EUR");
+  const [toCur, setToCur] = useState("USD");
 
   return (
     <div className="App">
@@ -15,14 +17,14 @@ function App() {
           onChange={(e) => setAmount(Number(e.target.value))}
         />
 
-        <select>
+        <select value={fromCur} onChange={(e) => setFromCur(e.target.value)}>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="CAD">CAD</option>
           <option value="INR">INR</option>
         </select>
 
-        <select>
+        <select value={toCur} onChange={(e) => setToCur(e.target.value)}>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="CAD">CAD</option>
