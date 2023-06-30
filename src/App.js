@@ -1,9 +1,23 @@
+// `https://api.frankfurter.app/latest?amount=100&from=EUR&to=USD`
+
+import { useEffect } from "react";
 import { useState } from "react";
 
 function App() {
   const [amount, setAmount] = useState(1);
   const [fromCur, setFromCur] = useState("EUR");
   const [toCur, setToCur] = useState("USD");
+
+  useEffect(function () {
+    async function convert() {
+      const res = await fetch(
+        `https://api.frankfurter.app/latest?amount=100&from=EUR&to=USD`
+      );
+      const data = await res.json();
+      console.log(data.rates[toCur]);
+    }
+    convert();
+  }, []);
 
   return (
     <div className="App">
